@@ -1,0 +1,24 @@
+-------------------------------------------------
+-- |
+-- Module : Calculator
+-- Parsing arithmatic expression and evaluate it
+-- author Tarek Nawara
+--
+-------------------------------------------------
+module Calculator
+  ( calculate
+  ) where
+
+import Text.Parsec
+import Text.Parsec.String
+
+calculation :: Parser Int
+calculation = undefined
+
+calculate :: String -> String
+calculate s =
+  case ret of
+    Left e -> "error: " ++ show e
+    Right n -> "answer: " ++ show n
+  where
+    ret = parse calculation "" s
