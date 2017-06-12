@@ -10,10 +10,11 @@ module Main
   ( module Main
   ) where
 
-import Calculator(calculate)
+import Calculator (evalAll, defaultVars)
+import Control.Monad.State
 
 -- | Main function
 --   Reads expression from console and produce
---   the result of evaluating it 
+--   the result of evaluating it
 main :: IO ()
-main = interact (unlines . map calculate  . lines)
+main = evalStateT evalAll defaultVars
